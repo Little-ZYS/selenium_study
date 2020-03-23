@@ -40,6 +40,8 @@ class ForwardActivity:
             return
         try:
             for url in self.urls:
+                if url == '':
+                    continue
                 self.driver.get(url)
                 # 延迟两秒
                 time.sleep(2)
