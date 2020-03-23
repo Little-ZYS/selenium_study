@@ -22,7 +22,6 @@ class BiliBili:
         options.add_experimental_option('excludeSwitches',
                                         ['enable-automation'])
         options.add_argument('--headless')
-        options.add_argument('--disable-gpu')
         options.add_argument('–no-sandbox')
         options.add_argument('–disable-dev-shm-usage')
         options.add_argument('–disable-extensions')
@@ -63,7 +62,7 @@ class BiliBili:
         :return: None
         """
         self.driver.get(self.url)
-        self.driver.maximize_window()
+        self.driver.set_window_size(1920, 1080)
         username = self.wait.until(EC.element_to_be_clickable((By.ID, 'login-username')))
         password = self.wait.until(EC.element_to_be_clickable((By.ID, 'login-passwd')))
         time.sleep(1)
