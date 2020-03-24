@@ -59,8 +59,10 @@ def will_send_urls():
 
 
 def clean_send_pool():
+    send_body = '今日系统运行正常,今天发的链接有：' + str(read_to_pool('send_pool'))
     with open('pool/send_pool', 'r+') as clean_to:
         clean_to.truncate()
+    send_by_email(send_body)
 
 
 class UserAps:
