@@ -7,7 +7,7 @@ import datetime
 import time
 from selenium_bili import ForwardActivity
 import random
-
+from send_email import send_by_email
 
 # 测试用的
 def try67(n):
@@ -59,7 +59,7 @@ def will_send_urls():
 
 
 def clean_send_pool():
-    with open('D:/Pycharm_file/selenium_study/pool/send_pool', 'r+') as clean_to:
+    with open('pool/send_pool', 'r+') as clean_to:
         clean_to.truncate()
 
 
@@ -92,10 +92,12 @@ class UserAps:
         try:
             self.scheduler.start()
             while True:
-                time.sleep(1)
+                time.sleep(10)
         except (SystemExit, KeyboardInterrupt):
             self.scheduler.shutdown()
             print('Exit The Scheduler!')
+            send_body = '系统意外停止！'
+            send_by_email(send_body)
 
     def analyze_url_start(self):
         try:

@@ -11,12 +11,12 @@ from selenium.common.exceptions import NoSuchElementException, ElementNotInterac
 def write_to_pool(which_pool, href_lists):
     href_list = href_lists
     if which_pool == 'all_pool':
-        with open('D:/Pycharm_file/selenium_study/pool/all_pool', 'a') as write_to:
+        with open('pool/all_pool', 'a') as write_to:
             for href in href_list:
                 href = href + '\n'
                 write_to.write(href)
     elif which_pool == 'send_pool':
-        with open('D:/Pycharm_file/selenium_study/pool/send_pool', 'w') as write_to:
+        with open('pool/send_pool', 'w') as write_to:
             for href in href_list:
                 href = href + '\n'
                 write_to.write(href)
@@ -27,12 +27,12 @@ def write_to_pool(which_pool, href_lists):
 def read_to_pool(which_pool):
     send_pool = []
     if which_pool == 'all_pool':
-        with open('D:/Pycharm_file/selenium_study/pool/all_pool', 'r') as read_to:
+        with open('pool/all_pool', 'r') as read_to:
             for line in read_to.readlines():
                 send_pool.append(line.strip())
         return send_pool
     elif which_pool == 'send_pool':
-        with open('D:/Pycharm_file/selenium_study/pool/send_pool', 'r') as read_to:
+        with open('pool/send_pool', 'r') as read_to:
             for line in read_to.readlines():
                 send_pool.append(line.strip())
         return send_pool
