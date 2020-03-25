@@ -79,7 +79,7 @@ class UserAps:
             'max_instances': 3
         }
         self.scheduler = BackgroundScheduler(jobstores=jobstores, executors=executors, job_defaults=job_defaults)
-        self.scheduler.add_job(self.analyze_url_start, 'cron', hour=10, minute=1)
+        self.scheduler.add_job(self.analyze_url_start, 'cron', hour=11, minute=30)
         self.scheduler.add_job(clean_send_pool, 'cron', hour=23, minute=59)
 
     def add_job(self, user_job, hour, minute, second, arg):
