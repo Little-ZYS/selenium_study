@@ -109,12 +109,12 @@ class UserAps:
             urls_list = will_send_urls()
             for urls in urls_list:
                 if isinstance(urls, list):
-                    random_time_hour = random.randint(10, 22)
+                    random_time_hour = random.randint(12, 22)
                     random_time_minute = random.randint(1, 59)
                     random_time_second = random.randint(1, 39)
                     self.add_job(forward_start, random_time_hour, random_time_minute, random_time_second, urls)
                 else:
-                    random_time_hour = random.randint(10, 22)
+                    random_time_hour = random.randint(12, 22)
                     random_time_minute = random.randint(1, 59)
                     random_time_second = random.randint(1, 39)
                     self.add_job(forward_start, random_time_hour, random_time_minute, random_time_second, urls_list)
