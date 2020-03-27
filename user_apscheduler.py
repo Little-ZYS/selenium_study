@@ -9,6 +9,7 @@ from selenium_bili import ForwardActivity
 import random
 from send_email import send_by_email
 
+
 # 测试用的
 def try67(n):
     print(n)

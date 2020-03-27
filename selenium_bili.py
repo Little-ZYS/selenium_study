@@ -44,8 +44,11 @@ class ForwardActivity:
                     continue
                 self.driver.get(url)
                 # 延迟两秒
-                time.sleep(2)
-                self.driver.find_element_by_class_name('user-decorator').click()
+                time.sleep(1)
+                try:
+                    self.driver.find_element_by_class_name('user-decorator').click()
+                except NoSuchElementException:
+                    self.driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/div/div/div[1]/div[1]/a').click()
                 time.sleep(1)
                 handles = self.driver.window_handles
                 self.driver.switch_to.window(handles[1])
@@ -95,8 +98,9 @@ class ForwardActivity:
 
 
 if __name__ == '__main__':
-    url_list = ['https://t.bilibili.com/369052078596177784?tab=2',
+    url_list = ['https://t.bilibili.com/370157465741381217?tab=2', 'https://t.bilibili.com/369858935449419540?tab=2',
+                'https://t.bilibili.com/369917840919955370?tab=2', 'https://t.bilibili.com/369903259505871198?tab=2'
                 ]
 
-    test0 = ForwardActivity(1, url_list)
+    test0 = ForwardActivity(0, url_list)
     test0.enter_page()
